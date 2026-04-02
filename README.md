@@ -1,17 +1,35 @@
-# abuja_rent_direct
+# Abuja Rent Direct
 
-A new Flutter project.
+A modern, agent-free apartment rental platform focused on **Abuja, Nigeria**.  
 
-## Getting Started
+Connects landlords directly with tenants — eliminating greedy agents, hidden fees, and unnecessary stress.
 
-This project is a starting point for a Flutter application.
+## ✨ Features
 
-A few resources to get you started if this is your first Flutter project:
+- **Direct Landlord-Tenant Connection** — No middlemen, no agent commissions
+- **Real-time Listings** — Browse available apartments with clear yearly rent prices
+- **Search & Filters** — Filter by location, bedrooms, price range, etc.
+- **Detailed Property View** — Photos, amenities, description, and availability
+- **Contact Options** — WhatsApp chat + Direct Call button
+- **Landlord Posting** — Easy form for landlords to post new apartments with images
+- **Clean & Minimalist UI** — Dark theme optimized for Nigerian users
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## 🛠 Tech Stack
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Frontend**: Flutter (Cross-platform — Android & iOS)
+- **Backend**: Firebase (Firestore + Storage)
+- **State Management**: Built-in `setState` + StreamBuilder (can be upgraded to Riverpod/Provider)
+- **Authentication**: Ready for Firebase Auth (planned)
+- **Maps**: Google Maps integration ready (planned)
+
+## 📱 Screenshots
+
+*(Add screenshots here later — Home screen, Detail page, Post Listing, etc.)*
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Flutter SDK (3.41.6 or higher)
+- Android Studio / VS Code
+- Firebase Project (with Firestore and Storage enabled)
