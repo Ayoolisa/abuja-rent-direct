@@ -21,7 +21,12 @@ class _PostListingScreenState extends State<PostListingScreen> {
   int bathrooms = 2;
 
   Future<void> _postListing() async {
-    if (!_formKey.currentState!.validate()) return;
+    if (!_formKey.currentState!.validate()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please fill all required fields')),
+      );
+      return;
+    }
 
     try {
       final newListing = Listing(
@@ -31,22 +36,22 @@ class _PostListingScreenState extends State<PostListingScreen> {
         pricePerAnnum: double.parse(_priceController.text.trim()),
         bedrooms: bedrooms,
         bathrooms: bathrooms,
-        imageUrls: ['https://picsum.photos/id/1015/800/600'], // temporary placeholder
+        imageUrls: ['https://picsum.photos/id/1015/800/600'], // temporary placeholder image
         description: _descriptionController.text.trim(),
         landlordPhone: _phoneController.text.trim(),
         availableFrom: DateTime.now().add(const Duration(days: 7)),
-        amenities: ['Security', 'Generator', 'Tiled floors'],
+        amenities: ['Security', 'Generator', 'Tiled floors', 'Kitchen cabinets'],
       );
 
       await FirebaseFirestore.instance.collection('listings').add(newListing.toMap());
 
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Listing posted successfully!')),
+        const SnackBar(content: Text('Listing posted successfully! (Test mode - no image)')),
       );
       Navigator.pop(context);
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: $e')),
+        SnackBar(content: Text('Failed to post: ${e.toString()}')),
       );
     }
   }
@@ -54,16 +59,17 @@ class _PostListingScreenState extends State<PostListingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Post New Listing')),
+      appBar: AppBar(title: const Text('Post New Listing (Test Mode)')),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Test Mode - No Image Upload', style: TextStyle(color: Colors.orange)),
+              const Text('Test Mode: No image upload for now', style: TextStyle(color: Colors.orange)),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 24),
 
               TextFormField(
                 controller: _titleController,
@@ -88,7 +94,7 @@ class _PostListingScreenState extends State<PostListingScreen> {
               ),
               TextFormField(
                 controller: _descriptionController,
-                maxLines: 3,
+                maxLines: 4,
                 decoration: const InputDecoration(labelText: 'Description'),
               ),
 
@@ -98,20 +104,20 @@ class _PostListingScreenState extends State<PostListingScreen> {
                   const Text('Bedrooms: '),
                   DropdownButton<int>(
                     value: bedrooms,
-                    items: List.generate(6, (i) => DropdownMenuItem(value: i+1, child: Text('${i+1}'))),
+                    items: List.generate(6, (i) => DropdownMenuItem(value: i + 1, child: Text('${i + 1}'))),
                     onChanged: (v) => setState(() => bedrooms = v!),
                   ),
                   const SizedBox(width: 40),
                   const Text('Bathrooms: '),
                   DropdownButton<int>(
                     value: bathrooms,
-                    items: List.generate(5, (i) => DropdownMenuItem(value: i+1, child: Text('${i+1}'))),
+                    items: List.generate(5, (i) => DropdownMenuItem(value: i + 1, child: Text('${i + 1}'))),
                     onChanged: (v) => setState(() => bathrooms = v!),
                   ),
                 ],
               ),
 
-              const SizedBox(height: 30),
+              const SizedBox(height: 40),
               SizedBox(
                 width: double.infinity,
                 height: 56,

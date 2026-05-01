@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "682770824747",
+    "project_id": "abuja-rent-direct-5d09a",
+    "storage_bucket": "abuja-rent-direct-5d09a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682770824747:android:1d5b3e71b69bae4d55346e",
+        "android_client_info": {
+          "package_name": "com.example.abuja_rent_direct"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0OpvZAcltsKcXqTQqNZEo6eUwWArP4JE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

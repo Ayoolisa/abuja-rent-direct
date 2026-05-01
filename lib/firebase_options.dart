@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'abuja-rent-direct-5d09a.firebasestorage.app',
     measurementId: 'G-74Z6DXQJCR',
   );
+
 }
